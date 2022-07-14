@@ -21,10 +21,12 @@
     console.log(`Дата Рождения: ${birthDate}`);
 
     let now = new Date();
-    let nowTS = now.getTime();
-    let birthDateTS = birthDate.getTime();
-    let fullYears = Math.floor((nowTS - birthDateTS) / 1000 / 60 / 60 / 24 / 365);
-    console.log(`Полных лет: ${fullYears}`);
+    let birthDateNow = new Date(now.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+    let age =  now.getFullYear() - birthDate.getFullYear();
+    if(now < birthDateNow){
+      age--;
+    }
+    console.log(`Полных лет: ${age}`);
 
     if (arr[8] % 2 == 0){
       console.log('Пол женский');
